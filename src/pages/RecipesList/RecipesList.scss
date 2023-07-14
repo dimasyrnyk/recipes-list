@@ -1,0 +1,19 @@
+@import "@styles/colors.scss";
+
+/* ---------- MEDIA SCREEN -- MOBILE ---------- */
+@media (max-width: 600px) {
+  .recipes-list {
+    height: 354px;
+  }
+}
+
+/* ---------- MEDIA SCREEN -- TABLET && DESKTOP ---------- */
+@media (min-width: 601px) {
+  .recipes-list {
+    height: 280px;
+  }
+}
+
+.recipes-list {
+  overflow: auto;
+}

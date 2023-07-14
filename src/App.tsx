@@ -1,24 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+
+import "./App.scss";
+import { useRecipes } from "@store/recipies";
+import { AppRoutes } from "./constants/app";
+import RecipesList from "./pages/RecipesList/RecipesList";
+import RecipeInfo from "./pages/RecipeItem/RecipeInfo";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Alert from "./components/Alert/Alert";
+import { useEffect } from "react";
+import { useApp } from "@store/app";
 
 function App() {
+  const appShowAlert = useApp((state) => state.appShowAlert);
+  const error = useRecipes((state) => state.error);
+
+  useEffect(() => {
+    if (error) {
+      appShowAlert({ text: error, isError: true });
+    }
+  }, [error]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app__container background text">
+      <Alert />
+      <Header />
+      <main className="main__container">
+        <Routes>
+          <Route
+            path={AppRoutes.RECIPES_LIST}
+            element={<RecipesList />}
+          />
+          <Route
+            path={AppRoutes.RECIPE_ITEM}
+            element={<RecipeInfo />}
+          />
+        </Routes>
+      </main>
+      <Footer />
     </div>
   );
 }

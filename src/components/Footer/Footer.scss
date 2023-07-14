@@ -1,0 +1,21 @@
+@import "@styles/colors.scss";
+
+footer {
+  width: 100%;
+  padding: 10px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+
+  &__link {
+    text-decoration: none;
+    color: $blue;
+    margin: 0 5px;
+
+    &:hover {
+      color: $black;
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@import "@styles/colors.scss";
+
+[class^="alert"] {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 10px;
+  max-width: 1000px;
+  padding: 15px 30px;
+  margin: 0 auto;
+  font-size: 16px;
+  color: $black;
+  border-radius: 4px;
+  z-index: 200;
+}
+
+.alert {
+  &__body {
+    position: static;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    gap: 10px;
+  }
+
+  &__message {
+    position: static;
+    text-align: center;
+    width: calc(100% - 50px);
+    padding: 0;
+  }
+
+  &__btn {
+    position: static;
+    border-radius: 5px;
+    background-color: $white;
+    height: 30px;
+    width: 50px;
+    padding: 0;
+
+    &_red {
+      border: 1px solid $red;
+      color: $red;
+
+      &:hover {
+        background-color: darken($lightred, 3%);
+      }
+    }
+
+    &_green {
+      border: 1px solid $green;
+      color: $green;
+
+      &:hover {
+        background-color: darken($lightgreen, 3%);
+      }
+    }
+  }
+
+  &__red {
+    background-color: $lightred;
+  }
+
+  &__green {
+    background-color: $lightgreen;
+  }
+}

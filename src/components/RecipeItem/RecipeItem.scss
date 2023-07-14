@@ -1,0 +1,70 @@
+@import "@styles/colors.scss";
+
+/* ---------- MEDIA SCREEN -- MOBILE ---------- */
+@media (max-width: 600px) {
+  .recipe-item {
+    &__container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}
+
+/* ---------- MEDIA SCREEN -- TABLET && DESKTOP ---------- */
+@media (min-width: 601px) {
+  .recipe-item {
+    &__container {
+      align-items: center;
+    }
+  }
+}
+
+.recipe-item {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 1px solid $primary_lightgray;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 10px 0;
+
+  &.checked {
+    background-color: $lightbrown;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex: 1;
+  }
+
+  &__checkbox {
+    cursor: pointer;
+    margin: 10px 15px 10px 10px;
+
+    &_label {
+      cursor: pointer;
+      align-self: center;
+    }
+  }
+
+  &__title {
+    overflow: hidden;
+    word-break: break-all;
+    font-size: 16px;
+    flex: 1;
+
+    &.checked {
+      text-decoration: line-through;
+    }
+  }
+}

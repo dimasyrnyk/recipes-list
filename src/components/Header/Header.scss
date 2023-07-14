@@ -1,0 +1,40 @@
+@import "@styles/colors.scss";
+
+/* ---------- MEDIA SCREEN -- MOBILE ---------- */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+
+    h1 {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 15px 5px 15px;
+
+  h1 {
+    color: $blue;
+    width: 200px;
+  }
+
+  &__button_remove {
+    border-radius: 5px;
+    border: 1px solid $primary_lightgray;
+    padding: 6px 16px;
+    font-size: 1.25rem;
+
+    &:hover {
+      scale: 1.02;
+    }
+
+    &:focus {
+      scale: 0.98;
+    }
+  }
+}
